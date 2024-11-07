@@ -107,6 +107,22 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+
+    public void TakeDamage(float damage)
+    {
+        ShowDamage();
+        health -= damage;
+
+        if (health <- 0)
+        {
+            if (!notifiedOfDestruction)
+            {
+                Main.S.ShipDestroyed(this);
+            }
+            notifiedOfDestruction = true;
+            Destroy(this.gameObject);
+        }
+    }
     void ShowDamage()
     {
         foreach (Material m in materials)

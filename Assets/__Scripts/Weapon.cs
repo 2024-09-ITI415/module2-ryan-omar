@@ -15,7 +15,8 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
-    shield // Raise shieldLevel
+    shield, // Raise shieldLevel
+    timeBomb //A bomb that has a timer
 }
 
 /// <summary>
@@ -35,6 +36,8 @@ public class WeaponDefinition
     public float continuousDamage = 0; // Damage per second (Laser)
     public float delayBetweenShots = 0;
     public float velocity = 0; // Speed of projectiles
+    public float explosionRadius = 5f; //Explosion range for time bomb
+    public float explosionDelay = 3f; //Explosion range for time bomb
 }
 public class Weapon : MonoBehaviour {
     static public Transform PROJECTILE_ANCHOR;
@@ -46,6 +49,10 @@ public class Weapon : MonoBehaviour {
     public GameObject collar;
     public float lastShotTime; // Time last shot was fired
     private Renderer collarRend;
+
+    [Header("Audio")]
+    public AudioClip fireSound;
+    private AudioSource audioSource;
 
     private void Start()
     {
@@ -109,6 +116,11 @@ public class Weapon : MonoBehaviour {
         {
             return;
         }
+
+        if(fireSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(fireSound);
+        }
         Projectile p;
         Vector3 vel = Vector3.up * def.velocity;
         if (transform.up.y < 0)
@@ -132,9 +144,34 @@ public class Weapon : MonoBehaviour {
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
                 break;
+            case WeaponType.timeBomb:
+                StartCoroutine(DeployTimeBomb());
+                break;
         }
     }
 
+    private IEnumerator DeployTimeBomb()
+    {
+        Projectile bomb = MakeProjectile();
+        bomb.rigid.velocity = Vector3.zero;
+
+        //Wait for explosion delay
+        yield return new WaitForSeconds(def.explosionDelay);
+
+        //Trigger explosions and damage enemies within range
+        Collider[] hitColliders  = Physics.OverlapSphere(bomb.transform.position, def.explosionRadius);
+        foreach (Collider hit in hitColliders)
+        {
+            if (hit.CompareTag("Enemy"))
+            {
+                Enemy hitEnemy = hit.GetComponent<Enemy>();
+                if (hitEnemy != null)
+                {
+                    hitEnemy.TakeDamage(def.damageOnHit); //Dealing damage to enemies
+                }
+            }
+        }
+    }
     public Projectile MakeProjectile()
     {
         GameObject go = Instantiate<GameObject>(def.projectilePrefab);
