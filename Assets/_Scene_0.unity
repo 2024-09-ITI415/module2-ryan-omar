@@ -362,8 +362,8 @@ MonoBehaviour:
   - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
   - {fileID: 1158547974957732, guid: a0a74b7d2e3ac2449b0e77185af83fed, type: 3}
   - {fileID: 1700942416061258, guid: 3f6055558a488314cb38691d88c41fdf, type: 3}
-  - {fileID: 1539775467464788, guid: 06677ec088bca734db80dc6ecea1d7af, type: 3}
-  enemySpawnPerSecond: 0.5
+  - {fileID: 1801717105832950, guid: cb4206b8e00300649994ecf8ffe838d5, type: 3}
+  enemySpawnPerSecond: 1
   enemyDefaultPadding: 1.5
   weaponDefinitions:
   - type: 1
@@ -685,7 +685,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!114 &494030672 stripped
@@ -753,7 +753,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!114 &511470548 stripped
@@ -1021,7 +1021,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     - target: {fileID: 114684557380802588, guid: d38b8bdef6bb4724e9a7341bda0aad27,
         type: 3}
       propertyPath: def.damageOnHit
@@ -1082,7 +1082,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!114 &1185779853 stripped
@@ -1396,7 +1396,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!114 &1808560890 stripped
@@ -1717,7 +1717,7 @@ PrefabInstance:
         type: 3}
       propertyPath: fireSound
       value: 
-      objectReference: {fileID: 8300000, guid: 66b242127b2921f4e86ec9605167b127, type: 3}
+      objectReference: {fileID: 8300000, guid: 3d46f2c6599e8c54ba1b0fb5c6307e3d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38b8bdef6bb4724e9a7341bda0aad27, type: 3}
 --- !u!114 &2031523527 stripped
