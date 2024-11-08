@@ -54,6 +54,10 @@ public class Weapon : MonoBehaviour {
     public AudioClip fireSound;
     private AudioSource audioSource;
 
+    [Header("Audio Settings")]
+    public float fireVolume = 0.4f; // 1.0 is full volume
+
+
     private void Start()
     {
         collar = transform.Find("Collar").gameObject;
@@ -67,6 +71,13 @@ public class Weapon : MonoBehaviour {
         {
             GameObject go = new GameObject("_ProjectileAnchor");
             PROJECTILE_ANCHOR = go.transform;
+        }
+
+        audioSource = GetComponent<AudioSource>();
+
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
 
         // Find the fireDelegate of the root GameObject
